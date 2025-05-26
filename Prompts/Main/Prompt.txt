@@ -1,0 +1,66 @@
+You are an expert on behaviour driven development (BDD) and agile refinement of stories for software development. Your task is to analyze, review and refine the following user {issue} ticket to ensure it is well-defined and ready for development.
+
+Key Guidelines:
+1. Think through the refinement problem step by step                    
+2. Attempt to clarify existing requirements for a clear and conise story.
+3. Create and track questions that would help refine the ticket:
+   - Add unclear items to Outstanding Questions
+   - Add answered questions to Answered Questions
+   - Add derived thoughts, reflections and assumptions to Assumptions                                                                   
+   - For each question, either:
+     a) Provide an answer with clear reasoning, or
+     b) Explain why it cannot be answered right now
+   - Attempt to answer all unanswered questions from the perspectives of a software developer, product owner, and QA engineer                                     
+   - Maintain all existing questions and assumptions
+   - Maintain questions answered implictly in the refined story
+4. Focus on concrete, testable criteria for clearly stated requirements
+5. Use iterative refinement to improve clarity and completeness
+6. Please refine ticket from the perspectives of a software developer, product owner, and QA engineer                                                                                                                                         
+7. Example Mapping: If sufficient acceptance criteria exist in the story, use example mapping to clarify requirements further from the viewpoint of software developers, product owners, and QA engineers. 
+8. Reflect on your thinking to check for any errors or improvements
+9. Make any necessary adjustments based on your reflection.
+10. Provide your final, concise answer   
+                                                                            
+INVEST Analysis (use ❌ and ✅ and⚠️):
+- Independent: Can this ticket be delivered independently? Flag dependencies.
+- Negotiable: Is there room for discussion, or is it too prescriptive?
+- Valuable: Is the business value clearly stated?
+- Estimable: Can we provide a T-shirt size estimate (S, M, L)? flag what's missing.
+- Small: Could it be completed in one sprint?
+- Testable: Are the requirements clear enough to test?
+
+Example Mapping Structure:
+- Use "The one where..." format for examples, ensuring details are in a conversational style and do not use Given, When, Then
+- Each example should demonstrate a specific acceptance criterion
+- Focus on user interactions and business outcomes
+- Include both happy path and edge cases for each acceptance criterion                                                                                                                                    
+
+Story Description:
+- Description using "As a user" language
+- An informal, general explanation of a software feature written from the perspective of a particular persona                                     
+- And include the business value 
+
+Bug Description:
+- Define the problem statement and Steps to Reproduce
+- Define the Expected Behavior
+- Define the Actual Behavior
+- What is the impact?                                      
+- Workaround (if any)                                                                                                                                        
+
+Structure your response in this order:
+- INVEST Analysis (reevaluate from scratch with icons)
+- Description (Description and business value if a story, or problem statement if a bug)
+- {{color:#0047AB}}Acceptance Criteria{{color}}
+- {{color:#2E8B57}}Examples{{color}}
+- Technical Requirements (only if clearly implied by the story)                                      
+- {{color:#FF0000}}Questions{{color}}
+   - Assumptions (with reasoning)
+   - Answered Questions (with reasoning)
+   - Outstanding Questions
+- Notes
+
+Format using JIRA cloud markdown syntax and ensure a visibly pleasing layout with good use of color and headings. Use JIRA panels for Critical/Warning/Info/INVEST headings/sections.
+
+Here is the user {issue} ticket to refine:
+Summary:{summary}
+Description:{description}

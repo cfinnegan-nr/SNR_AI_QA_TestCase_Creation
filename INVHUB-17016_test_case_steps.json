@@ -1,0 +1,99 @@
+{
+    "testCases": [
+        {
+            "id": "TC-WF-001",
+            "summary": "Verify successful retrieval of workflow executions",
+            "preconditions": "User has valid authentication with userReporting permission",
+            "steps": [
+                {
+                    "step": "Send GET request to /reporting/workflows with valid parameters",
+                    "expectedResult": "Receive 200 OK response with complete workflow data",
+                    "testData": "endpoint=/reporting/workflows, auth_token=valid_token"
+                },
+                {
+                    "step": "Verify response content",
+                    "expectedResult": "Response includes Workflow ID, Name, Event Name, Assigned User/Team, Outcome, Creation Date",
+                    "testData": "expected_fields=[workflow_id, name, event_name, assigned_to, outcome, creation_date]"
+                },
+                {
+                    "step": "Measure response time",
+                    "expectedResult": "Response time is under 3 seconds",
+                    "testData": "max_response_time=3000ms"
+                }
+            ],
+            "postconditions": "Workflow data is successfully retrieved and validated"
+        },
+        {
+            "id": "TC-WF-002",
+            "summary": "Verify workflow filtering by event name",
+            "preconditions": "Workflows exist with various event names",
+            "steps": [
+                {
+                    "step": "Send GET request with specific event name filter",
+                    "expectedResult": "Receive 200 OK response",
+                    "testData": "eventName=UNUSUAL_ACTIVITY_FOUND"
+                },
+                {
+                    "step": "Verify filtered results",
+                    "expectedResult": "All returned workflows have the specified event name",
+                    "testData": "expected_event_name=UNUSUAL_ACTIVITY_FOUND"
+                }
+            ],
+            "postconditions": "Filtered results show only specified event name"
+        },
+        {
+            "id": "TC-WF-003",
+            "summary": "Verify date range filtering with invalid dates",
+            "preconditions": "User has valid authentication",
+            "steps": [
+                {
+                    "step": "Send GET request with invalid date range",
+                    "expectedResult": "Receive 400 Bad Request response",
+                    "testData": "startDate=2023-02-01, endDate=2023-01-31"
+                },
+                {
+                    "step": "Verify error message",
+                    "expectedResult": "Error message indicates endDate cannot be before startDate",
+                    "testData": "expected_error=Invalid date range"
+                }
+            ],
+            "postconditions": "Error is properly handled and communicated"
+        },
+        {
+            "id": "TC-WF-004",
+            "summary": "Verify unauthorized access handling",
+            "preconditions": "User lacks userReporting permission",
+            "steps": [
+                {
+                    "step": "Send GET request without proper permissions",
+                    "expectedResult": "Receive 403 Forbidden response",
+                    "testData": "auth_token=no_reporting_permission_token"
+                },
+                {
+                    "step": "Verify error message",
+                    "expectedResult": "Error message indicates insufficient permissions",
+                    "testData": "expected_error=Insufficient permissions"
+                }
+            ],
+            "postconditions": "Access is properly denied"
+        },
+        {
+            "id": "TC-WF-005",
+            "summary": "Verify API documentation accessibility",
+            "preconditions": "Documentation endpoint is available",
+            "steps": [
+                {
+                    "step": "Access API documentation endpoint",
+                    "expectedResult": "Documentation page is accessible",
+                    "testData": "endpoint=/documentation/workflows"
+                },
+                {
+                    "step": "Verify documentation content",
+                    "expectedResult": "Documentation includes request parameters, response structure, and usage examples",
+                    "testData": "expected_sections=[parameters, response_structure, examples]"
+                }
+            ],
+            "postconditions": "Documentation is complete and accessible"
+        }
+    ]
+}

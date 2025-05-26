@@ -1,0 +1,115 @@
+{
+  "testCases": [
+    {
+      "id": "TC-INVHUB-11697-01",
+      "summary": "Verify userReporting permission visibility in UI",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager and on permissions management screen",
+      "steps": [
+        {
+          "step": "View the list of permissions",
+          "expectedResult": "userReporting permission is visible in the list",
+          "testData": "User role: Supervisor"
+        }
+      ],
+      "postconditions": "Permission list is displayed correctly"
+    },
+    {
+      "id": "TC-INVHUB-11697-02",
+      "summary": "Verify assigning userReporting permission to role",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager",
+      "steps": [
+        {
+          "step": "Assign userReporting permission to Reporting Analyst role",
+          "expectedResult": "Permission is successfully assigned",
+          "testData": "Role: Reporting Analyst"
+        },
+        {
+          "step": "Verify API access for users with assigned role",
+          "expectedResult": "Users with Reporting Analyst role can access Reporting API",
+          "testData": "User with Reporting Analyst role"
+        }
+      ],
+      "postconditions": "Permission is correctly assigned and functional"
+    },
+    {
+      "id": "TC-INVHUB-11697-03",
+      "summary": "Verify removing userReporting permission from role",
+      "preconditions": "Reporting Analyst role has userReporting permission",
+      "steps": [
+        {
+          "step": "Remove userReporting permission from Reporting Analyst role",
+          "expectedResult": "Permission is successfully removed",
+          "testData": "Role: Reporting Analyst"
+        },
+        {
+          "step": "Verify API access is revoked",
+          "expectedResult": "Users with Reporting Analyst role cannot access Reporting API",
+          "testData": "User with Reporting Analyst role"
+        }
+      ],
+      "postconditions": "Permission is correctly removed"
+    },
+    {
+      "id": "TC-INVHUB-11697-04",
+      "summary": "Verify error handling for non-existent role",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager",
+      "steps": [
+        {
+          "step": "Attempt to assign userReporting permission to non-existent role",
+          "expectedResult": "Error message 'Role does not exist' is displayed",
+          "testData": "Role: NonExistentRole"
+        }
+      ],
+      "postconditions": "System maintains integrity"
+    },
+    {
+      "id": "TC-INVHUB-11697-05",
+      "summary": "Verify audit logging for permission changes",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager",
+      "steps": [
+        {
+          "step": "Assign userReporting permission to role",
+          "expectedResult": "Audit log entry shows assignment with timestamp and user info",
+          "testData": "Role: Reporting Analyst"
+        },
+        {
+          "step": "Remove userReporting permission from role",
+          "expectedResult": "Audit log entry shows removal with timestamp and user info",
+          "testData": "Role: Reporting Analyst"
+        }
+      ],
+      "postconditions": "Audit log contains accurate records"
+    },
+    {
+      "id": "TC-INVHUB-11697-06",
+      "summary": "Verify UI consistency with multiple role assignments",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager",
+      "steps": [
+        {
+          "step": "Assign userReporting permission to multiple roles",
+          "expectedResult": "UI remains consistent with existing screens",
+          "testData": "Roles: Reporting Analyst, Supervisor, Compliance Manager"
+        }
+      ],
+      "postconditions": "UI maintains consistency"
+    },
+    {
+      "id": "TC-INVHUB-11697-07",
+      "summary": "Verify permission persistence in database",
+      "preconditions": "User is logged in as Supervisor or Compliance Manager",
+      "steps": [
+        {
+          "step": "Assign userReporting permission to role",
+          "expectedResult": "Permission is persisted in database",
+          "testData": "Role: Reporting Analyst"
+        },
+        {
+          "step": "Verify database records",
+          "expectedResult": "Database shows correct permission assignment",
+          "testData": "Database query for role permissions"
+        }
+      ],
+      "postconditions": "Database records are accurate and persistent"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "testCases": [
+    {
+      "id": "TC-CDD-001",
+      "summary": "Verify Reviewed By field display in CDD Risk panel",
+      "preconditions": "User is logged in as Compliance L1 investigator",
+      "steps": [
+        {
+          "step": "Navigate to CDD Risk panel",
+          "expectedResult": "CDD Risk panel is displayed",
+          "testData": "Compliance L1 credentials"
+        },
+        {
+          "step": "Complete a risk assessment review",
+          "expectedResult": "Review is completed successfully",
+          "testData": "Risk assessment ID: RA001"
+        },
+        {
+          "step": "Verify Reviewed By field",
+          "expectedResult": "Reviewed By field displays the reviewer's name",
+          "testData": "Expected reviewer name: John Smith"
+        }
+      ],
+      "postconditions": "Risk assessment review is recorded with reviewer information"
+    },
+    {
+      "id": "TC-CDD-002",
+      "summary": "Verify Historical Scores Table columns",
+      "preconditions": "User is logged in as Compliance L1 investigator",
+      "steps": [
+        {
+          "step": "Navigate to Historical Scores Table in CDD Risk panel",
+          "expectedResult": "Historical Scores Table is displayed",
+          "testData": "Compliance L1 credentials"
+        },
+        {
+          "step": "Verify new columns presence",
+          "expectedResult": "Workflow, Reviewed On, and Reviewed By columns are present",
+          "testData": ""
+        },
+        {
+          "step": "Verify column data accuracy",
+          "expectedResult": "Columns display correct workflow status, review timestamp, and reviewer name",
+          "testData": "Sample historical score record"
+        }
+      ],
+      "postconditions": "Historical Scores Table displays all required columns with correct data"
+    },
+    {
+      "id": "TC-CDD-003",
+      "summary": "Verify workflow status logic",
+      "preconditions": "Access to risk assessment system",
+      "steps": [
+        {
+          "step": "Check workflow status for assessment with null refinedOutcome",
+          "expectedResult": "Status displays as Open",
+          "testData": "Risk assessment with null refinedOutcome"
+        },
+        {
+          "step": "Check workflow status for assessment with refinedOutcome value",
+          "expectedResult": "Status displays as Closed",
+          "testData": "Risk assessment with refinedOutcome: Approved"
+        }
+      ],
+      "postconditions": "Workflow statuses are correctly displayed based on refinedOutcome"
+    }
+  ]
+}

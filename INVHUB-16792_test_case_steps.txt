@@ -1,0 +1,99 @@
+{
+  "testCases": [
+    {
+      "id": "TC-AML-001",
+      "summary": "Verify additional columns in Open Detections List",
+      "preconditions": "User is logged in as Compliance Investigator and on AML Risk Panel page",
+      "steps": [
+        {
+          "step": "Navigate to Open Detections List",
+          "expectedResult": "Open Detections List is displayed",
+          "testData": "Compliance_Investigator_Login_Credentials"
+        },
+        {
+          "step": "Verify presence of new columns",
+          "expectedResult": "Detection Created On, Workflow, and Reviewed By columns are visible",
+          "testData": "Sample_Detection_List_Data"
+        },
+        {
+          "step": "Check for Due Date column",
+          "expectedResult": "Due Date column is not visible in the list",
+          "testData": ""
+        }
+      ],
+      "postconditions": "All required columns are verified"
+    },
+    {
+      "id": "TC-AML-002",
+      "summary": "Verify default sort order in Open Detections",
+      "preconditions": "User is on Open Detections List page",
+      "steps": [
+        {
+          "step": "Load the Open Detections List",
+          "expectedResult": "List loads successfully",
+          "testData": "Detection_List_With_Multiple_Records"
+        },
+        {
+          "step": "Verify default sort order",
+          "expectedResult": "List is sorted by Detection Created On in ascending order",
+          "testData": "Detection_Creation_Timestamps"
+        }
+      ],
+      "postconditions": "Default sort order is verified"
+    },
+    {
+      "id": "TC-AML-003",
+      "summary": "Verify sorting and filtering functionality",
+      "preconditions": "User is on Open Detections List page",
+      "steps": [
+        {
+          "step": "Click sort on Workflow column",
+          "expectedResult": "List sorts by Workflow in ascending order",
+          "testData": "Multiple_Workflow_Names"
+        },
+        {
+          "step": "Apply filter on Reviewed By column",
+          "expectedResult": "List filters to show only selected reviewer's items",
+          "testData": "Reviewer_Names_List"
+        }
+      ],
+      "postconditions": "Sort and filter functions verified"
+    },
+    {
+      "id": "TC-AML-004",
+      "summary": "Verify Closed Detections List columns",
+      "preconditions": "User is on Closed Detections List page",
+      "steps": [
+        {
+          "step": "Navigate to Closed Detections List",
+          "expectedResult": "Historical label is displayed as Closed",
+          "testData": ""
+        },
+        {
+          "step": "Verify new columns",
+          "expectedResult": "Closed By and Detection Created On columns are visible",
+          "testData": "Closed_Detection_Records"
+        }
+      ],
+      "postconditions": "Closed list columns verified"
+    },
+    {
+      "id": "TC-AML-005",
+      "summary": "Verify Help Guide updates",
+      "preconditions": "AML Risk Panel updates are implemented",
+      "steps": [
+        {
+          "step": "Access Help Guide",
+          "expectedResult": "Help Guide opens successfully",
+          "testData": ""
+        },
+        {
+          "step": "Review documentation for new features",
+          "expectedResult": "Documentation includes new columns, sorting, and filtering information",
+          "testData": "Updated_Help_Guide_Content"
+        }
+      ],
+      "postconditions": "Help Guide documentation verified"
+    }
+  ]
+}

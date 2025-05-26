@@ -1,0 +1,134 @@
+{
+  "testCases": [
+    {
+      "id": "TC-WORKFLOW-001",
+      "summary": "Verify column updates for open lists",
+      "preconditions": "User is logged in as Compliance investigator",
+      "steps": [
+        {
+          "step": "Navigate to any panel with open lists",
+          "expectedResult": "Panel opens successfully",
+          "testData": "Compliance L1 user credentials"
+        },
+        {
+          "step": "Verify presence of required columns",
+          "expectedResult": "Columns 'Created On', 'Workflow', 'Reviewed By', and 'Reviewed On' are visible",
+          "testData": ""
+        },
+        {
+          "step": "Verify absence of 'Due Date' column",
+          "expectedResult": "'Due Date' column is not present",
+          "testData": ""
+        },
+        {
+          "step": "Verify default sorting",
+          "expectedResult": "List is sorted by 'Created On' in ascending order",
+          "testData": ""
+        }
+      ],
+      "postconditions": "All column visibility and sorting requirements are verified"
+    },
+    {
+      "id": "TC-WORKFLOW-002",
+      "summary": "Verify Customer Screening panel specific changes",
+      "preconditions": "User is logged in as Compliance investigator",
+      "steps": [
+        {
+          "step": "Navigate to Customer Screening panel",
+          "expectedResult": "Customer Screening panel is displayed",
+          "testData": "Compliance L2 user credentials"
+        },
+        {
+          "step": "Verify Watchlist column",
+          "expectedResult": "'Watchlist' column is present",
+          "testData": ""
+        },
+        {
+          "step": "Check AI Score header",
+          "expectedResult": "AI icon is displayed next to 'AI Score' header",
+          "testData": ""
+        },
+        {
+          "step": "Verify column rename",
+          "expectedResult": "'Historical Matches' is renamed to 'Closed Matches'",
+          "testData": ""
+        }
+      ],
+      "postconditions": "All Customer Screening panel updates are verified"
+    },
+    {
+      "id": "TC-WORKFLOW-003",
+      "summary": "Verify Payment Screening panel updates",
+      "preconditions": "User is logged in as Compliance investigator",
+      "steps": [
+        {
+          "step": "Navigate to Payment Screening panel",
+          "expectedResult": "Payment Screening panel is displayed",
+          "testData": "Compliance L1 user credentials"
+        },
+        {
+          "step": "Verify column rename",
+          "expectedResult": "'Counter-party' is renamed to 'Counterparty'",
+          "testData": ""
+        },
+        {
+          "step": "View Recent Payments",
+          "expectedResult": "'Detection ID' column is present and payments are sorted by 'Origination Date' in descending order",
+          "testData": "Sample payment data"
+        },
+        {
+          "step": "View On Hold Payments",
+          "expectedResult": "Payments are sorted by 'Base Amount' in descending order",
+          "testData": "Sample on-hold payment data"
+        }
+      ],
+      "postconditions": "All Payment Screening panel updates are verified"
+    },
+    {
+      "id": "TC-WORKFLOW-004",
+      "summary": "Verify Closed Lists functionality",
+      "preconditions": "User is logged in as Compliance investigator",
+      "steps": [
+        {
+          "step": "Navigate to Closed Lists",
+          "expectedResult": "Closed Lists view is displayed",
+          "testData": "Sample closed list data"
+        },
+        {
+          "step": "Verify required columns",
+          "expectedResult": "Columns 'Closed On', 'Closed By', and 'Created On' are present",
+          "testData": ""
+        },
+        {
+          "step": "Verify default sorting",
+          "expectedResult": "List is sorted by 'Closed On' in descending order",
+          "testData": ""
+        }
+      ],
+      "postconditions": "All Closed Lists requirements are verified"
+    },
+    {
+      "id": "TC-WORKFLOW-005",
+      "summary": "Verify sorting and filtering functionality",
+      "preconditions": "User is logged in as Compliance investigator",
+      "steps": [
+        {
+          "step": "Navigate to any panel",
+          "expectedResult": "Panel is displayed with data",
+          "testData": "Sample panel data"
+        },
+        {
+          "step": "Test sorting on each column",
+          "expectedResult": "Sorting is functional on all columns",
+          "testData": "Various column data types"
+        },
+        {
+          "step": "Test filtering on each column",
+          "expectedResult": "Filtering is functional on all columns",
+          "testData": "Filter criteria for each column"
+        }
+      ],
+      "postconditions": "Sorting and filtering functionality is verified"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "testCases": [
+    {
+      "id": "TC-COPILOT-001",
+      "summary": "Verify Copilot sidebar visibility for users with userReporting permission",
+      "preconditions": "User account with userReporting permission exists. User is logged into the system.",
+      "steps": [
+        {
+          "step": "Navigate to the Investigations landing screen",
+          "expectedResult": "Investigations landing screen is displayed",
+          "testData": "URL: /investigations"
+        },
+        {
+          "step": "Verify Copilot sidebar visibility",
+          "expectedResult": "Copilot sidebar is visible on the right side of the screen",
+          "testData": ""
+        },
+        {
+          "step": "Verify sidebar text content",
+          "expectedResult": "Sidebar displays text 'AI-Driven Supervision Companion'",
+          "testData": "Expected text: AI-Driven Supervision Companion"
+        },
+        {
+          "step": "Check for Chatbot widget",
+          "expectedResult": "Chatbot widget is visible within the sidebar",
+          "testData": ""
+        }
+      ],
+      "postconditions": "User remains on Investigations landing screen"
+    },
+    {
+      "id": "TC-COPILOT-002",
+      "summary": "Verify Copilot sidebar is hidden for users without userReporting permission",
+      "preconditions": "User account without userReporting permission exists. User is logged into the system.",
+      "steps": [
+        {
+          "step": "Navigate to the Investigations landing screen",
+          "expectedResult": "Investigations landing screen is displayed",
+          "testData": "URL: /investigations"
+        },
+        {
+          "step": "Check for Copilot sidebar",
+          "expectedResult": "Copilot sidebar is not visible on the screen",
+          "testData": ""
+        }
+      ],
+      "postconditions": "User remains on Investigations landing screen"
+    },
+    {
+      "id": "TC-COPILOT-003",
+      "summary": "Verify Copilot sidebar visibility updates after permission change",
+      "preconditions": "User account with userReporting permission exists. Admin access to modify permissions. User is logged into the system.",
+      "steps": [
+        {
+          "step": "Navigate to the Investigations landing screen",
+          "expectedResult": "Investigations landing screen is displayed with Copilot sidebar visible",
+          "testData": "URL: /investigations"
+        },
+        {
+          "step": "Revoke userReporting permission",
+          "expectedResult": "Permission is successfully revoked",
+          "testData": "User permission: userReporting=false"
+        },
+        {
+          "step": "Log out of the system",
+          "expectedResult": "User is successfully logged out",
+          "testData": ""
+        },
+        {
+          "step": "Log back into the system",
+          "expectedResult": "User is successfully logged in",
+          "testData": "User credentials"
+        },
+        {
+          "step": "Navigate to Investigations landing screen",
+          "expectedResult": "Copilot sidebar is not visible",
+          "testData": "URL: /investigations"
+        }
+      ],
+      "postconditions": "User permissions remain updated"
+    },
+    {
+      "id": "TC-COPILOT-004",
+      "summary": "Verify Copilot sidebar visibility persists after page refresh",
+      "preconditions": "User account with userReporting permission exists. User is logged into the system.",
+      "steps": [
+        {
+          "step": "Navigate to the Investigations landing screen",
+          "expectedResult": "Investigations landing screen is displayed with Copilot sidebar visible",
+          "testData": "URL: /investigations"
+        },
+        {
+          "step": "Refresh the page",
+          "expectedResult": "Page refreshes successfully",
+          "testData": "Browser refresh command"
+        },
+        {
+          "step": "Verify sidebar visibility after refresh",
+          "expectedResult": "Copilot sidebar remains visible",
+          "testData": ""
+        },
+        {
+          "step": "Verify sidebar text content",
+          "expectedResult": "Sidebar displays text 'AI-Driven Supervision Companion'",
+          "testData": "Expected text: AI-Driven Supervision Companion"
+        },
+        {
+          "step": "Verify Chatbot widget presence",
+          "expectedResult": "Chatbot widget is visible within the sidebar",
+          "testData": ""
+        }
+      ],
+      "postconditions": "User remains on Investigations landing screen with sidebar visible"
+    }
+  ]
+}
